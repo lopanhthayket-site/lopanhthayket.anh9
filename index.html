@@ -1,134 +1,1916 @@
+```html
 <!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Khoá THCS - Lớp Anh thầy Kết</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #fff8f0;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
 
-  header {
-    background-color: #EA7B7B; /* pastel cam nhạt */
-    color: #FCF8F8;
-    padding: 40px 20px;
-    font-size: 36px;
-    font-weight: bold;
-  }
+/* =====================================================
+   RESET
+===================================================== */
 
-  .button-container {
-    margin: 50px auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    max-width: 900px;
-  }
+*{
+    box-sizing:border-box;
+}
 
-  .nav-button {
-    background-color: #a0e7e5; /* pastel xanh nhạt */
-    color: #3a3a3a;
-    border: none;
-    padding: 20px 25px;
-    font-size: 20px;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: transform 0.2s, background-color 0.3s;
-    text-decoration: none;
-    flex: 1 1 200px;
-    max-width: 220px;
-  }
+html{
+    scroll-behavior:smooth;
+}
 
-  .nav-button:hover {
-    background-color: #ffb3ba; /* pastel hồng nhạt khi hover */
-    transform: translateY(-3px);
-  }
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    overflow-x:hidden;
 
-  .social-section {
-    margin-top: 60px;
-  }
+    color:#49331f;
 
-  .social-section h2 {
-    font-size: 24px;
-    color: #7a4e3e;
-    margin-bottom: 20px;
-  }
+    background:
+        linear-gradient(
+            to bottom,
+            #74d4f4 0%,
+            #bdeefb 28%,
+            #d8efb2 47%,
+            #82c958 100%
+        );
+}
 
-  .social-icons a {
-    display: inline-block;
-    margin: 0 15px;
-    font-size: 40px;
-    color: #a0e7e5; /* pastel xanh nhạt */
-    transition: color 0.3s, transform 0.2s;
-  }
 
-  .social-icons a:hover {
-    color: #ffb3ba; /* pastel hồng nhạt khi hover */
-    transform: translateY(-5px);
-  }
+/* =====================================================
+   BẦU TRỜI
+===================================================== */
 
-  footer {
-    margin-top: 50px;
-    padding: 20px;
-    font-size: 16px;
-    color: #555;
-    background-color: #fff0e1;
-  }
+.sky{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:-10;
+}
 
-  @media (max-width: 600px) {
-    .nav-button {
-      flex: 1 1 100%;
-      max-width: 90%;
-      font-size: 18px;
-      padding: 15px 10px;
+
+/* =====================================================
+   MẶT TRỜI
+===================================================== */
+
+.sun{
+    position:absolute;
+
+    width:115px;
+    height:115px;
+
+    right:8%;
+    top:35px;
+
+    border-radius:50%;
+
+    background:#ffe66b;
+
+    box-shadow:
+        0 0 30px #fff4a7,
+        0 0 80px rgba(255,230,100,.65);
+}
+
+
+/* =====================================================
+   MÂY
+===================================================== */
+
+.cloud{
+    position:absolute;
+
+    width:150px;
+    height:45px;
+
+    background:#fff;
+
+    border-radius:50px;
+
+    opacity:.8;
+}
+
+.cloud:before,
+.cloud:after{
+    content:"";
+
+    position:absolute;
+
+    background:#fff;
+
+    border-radius:50%;
+}
+
+.cloud:before{
+    width:70px;
+    height:70px;
+
+    left:25px;
+    bottom:5px;
+}
+
+.cloud:after{
+    width:85px;
+    height:85px;
+
+    right:20px;
+    bottom:4px;
+}
+
+.cloud1{
+    top:90px;
+    left:5%;
+
+    animation:
+        cloudMove 35s linear infinite;
+}
+
+.cloud2{
+    top:180px;
+    left:55%;
+
+    transform:scale(.7);
+
+    animation:
+        cloudMove 45s linear infinite reverse;
+}
+
+@keyframes cloudMove{
+
+    from{
+        margin-left:-100px;
     }
 
-    .social-icons a {
-      font-size: 35px;
-      margin: 0 10px;
+    to{
+        margin-left:180px;
     }
-  }
+
+}
+
+
+/* =====================================================
+   FARM
+===================================================== */
+
+.farm{
+    min-height:100vh;
+
+    padding:
+        20px 0 60px;
+
+    position:relative;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+
+    width:min(1050px,94%);
+
+    margin:
+        10px auto 20px;
+
+    padding:
+        22px 20px;
+
+    text-align:center;
+
+    position:relative;
+
+    background:
+        linear-gradient(
+            #a96834,
+            #77421f
+        );
+
+    border:
+        7px solid #59331b;
+
+    border-radius:28px;
+
+    box-shadow:
+        0 11px 0 #4e2d18,
+        0 18px 35px rgba(0,0,0,.25);
+
+    color:#fff5cb;
+}
+
+header h1{
+
+    margin:0;
+
+    font-size:
+        clamp(30px,5vw,54px);
+
+    text-shadow:
+        3px 4px 0 #543019;
+}
+
+.header-sub{
+
+    margin-top:7px;
+
+    color:#ffe9a0;
+
+    font-size:
+        clamp(15px,2.4vw,21px);
+
+    font-weight:bold;
+}
+
+.header-decoration{
+
+    position:absolute;
+
+    top:-25px;
+
+    font-size:35px;
+}
+
+.header-decoration.left{
+    left:20px;
+}
+
+.header-decoration.right{
+    right:20px;
+}
+
+
+/* =====================================================
+   WELCOME
+===================================================== */
+
+.welcome{
+
+    width:min(850px,92%);
+
+    margin:
+        20px auto 25px;
+
+    padding:
+        13px 20px;
+
+    text-align:center;
+
+    background:#fff6cb;
+
+    border:
+        4px solid #93622b;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 7px 0 #70491f,
+        0 10px 20px rgba(0,0,0,.15);
+
+    font-size:
+        clamp(14px,2vw,18px);
+
+    font-weight:bold;
+}
+
+.welcome strong{
+    color:#df5e34;
+}
+
+
+/* =====================================================
+   BẢN ĐỒ
+===================================================== */
+
+.map{
+
+    width:min(1250px,96%);
+
+    min-height:1120px;
+
+    margin:auto;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border:
+        9px solid #558c37;
+
+    border-radius:45px;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 15%,
+            rgba(255,255,255,.35),
+            transparent 17%
+        ),
+
+        radial-gradient(
+            circle at 80% 75%,
+            rgba(255,255,255,.2),
+            transparent 20%
+        ),
+
+        linear-gradient(
+            135deg,
+            #a8db70,
+            #78bf50
+        );
+
+    box-shadow:
+        inset 0 0 60px rgba(48,95,30,.25),
+        0 18px 40px rgba(0,0,0,.25);
+}
+
+
+/* =====================================================
+   MAP TITLE
+===================================================== */
+
+.map-title{
+
+    position:absolute;
+
+    top:25px;
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    z-index:10;
+
+    width:max-content;
+    max-width:90%;
+
+    padding:
+        10px 25px;
+
+    background:
+        linear-gradient(
+            #a86b35,
+            #79431f
+        );
+
+    border:
+        5px solid #59331c;
+
+    border-radius:20px;
+
+    color:#fff1ad;
+
+    font-size:
+        clamp(19px,3vw,30px);
+
+    font-weight:900;
+
+    text-align:center;
+
+    box-shadow:
+        0 7px 0 #4c2b18;
+}
+
+
+/* =====================================================
+   ĐƯỜNG ĐẤT
+===================================================== */
+
+.road{
+
+    position:absolute;
+
+    z-index:1;
+
+    background:#e8ca8d;
+
+    border:
+        5px solid #c29b59;
+
+    box-shadow:
+        inset 0 0 10px rgba(130,90,35,.18);
+
+    border-radius:60px;
+}
+
+.road-main{
+
+    width:72%;
+
+    height:65px;
+
+    left:14%;
+
+    top:470px;
+
+    transform:
+        rotate(3deg);
+}
+
+.road-vertical{
+
+    width:60px;
+
+    height:760px;
+
+    left:50%;
+
+    top:220px;
+
+    transform:
+        translateX(-50%)
+        rotate(2deg);
+}
+
+.road-left{
+
+    width:310px;
+
+    height:55px;
+
+    left:8%;
+
+    top:320px;
+
+    transform:
+        rotate(25deg);
+}
+
+.road-right{
+
+    width:310px;
+
+    height:55px;
+
+    right:7%;
+
+    top:320px;
+
+    transform:
+        rotate(-25deg);
+}
+
+.road-bottom{
+
+    width:420px;
+
+    height:55px;
+
+    left:32%;
+
+    top:805px;
+
+    transform:
+        rotate(-10deg);
+}
+
+
+/* =====================================================
+   CÂY
+===================================================== */
+
+.tree{
+
+    position:absolute;
+
+    z-index:3;
+
+    font-size:60px;
+
+    pointer-events:none;
+
+    filter:
+        drop-shadow(3px 5px 3px rgba(0,0,0,.18));
+}
+
+.t1{
+    left:25px;
+    top:130px;
+}
+
+.t2{
+    right:25px;
+    top:145px;
+}
+
+.t3{
+    left:35px;
+    bottom:180px;
+}
+
+.t4{
+    right:30px;
+    bottom:150px;
+}
+
+.t5{
+    left:18%;
+    bottom:25px;
+}
+
+.t6{
+    right:18%;
+    bottom:25px;
+}
+
+
+/* =====================================================
+   HOA
+===================================================== */
+
+.flower{
+
+    position:absolute;
+
+    z-index:3;
+
+    font-size:32px;
+
+    pointer-events:none;
+}
+
+.f1{
+    left:8%;
+    top:220px;
+}
+
+.f2{
+    right:8%;
+    top:235px;
+}
+
+.f3{
+    left:12%;
+    bottom:330px;
+}
+
+.f4{
+    right:12%;
+    bottom:300px;
+}
+
+
+/* =====================================================
+   KHU VỰC
+===================================================== */
+
+.zone{
+
+    position:absolute;
+
+    z-index:6;
+
+    width:205px;
+
+    min-height:180px;
+
+    padding:
+        15px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    color:#4b331f;
+
+    border:
+        6px solid #93632c;
+
+    border-radius:25px;
+
+    background:
+        linear-gradient(
+            #fff5c7,
+            #e8c978
+        );
+
+    box-shadow:
+        0 10px 0 #70481d,
+        0 15px 25px rgba(0,0,0,.23);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        filter .25s ease;
+}
+
+
+/* =====================================================
+   ICON
+===================================================== */
+
+.zone-icon{
+
+    font-size:58px;
+
+    line-height:1;
+
+    margin-bottom:10px;
+
+    filter:
+        drop-shadow(3px 4px 2px rgba(0,0,0,.17));
+
+    transition:
+        transform .25s ease;
+}
+
+.zone-name{
+
+    font-size:19px;
+
+    font-weight:900;
+
+    line-height:1.2;
+}
+
+.zone-desc{
+
+    margin-top:6px;
+
+    font-size:12px;
+
+    color:#765431;
+}
+
+
+/* =====================================================
+   HOVER
+===================================================== */
+
+.zone:hover{
+
+    transform:
+        translateY(-13px)
+        scale(1.08)
+        rotate(-1deg);
+
+    box-shadow:
+        0 19px 0 #70481d,
+        0 28px 40px rgba(0,0,0,.3);
+
+    filter:
+        brightness(1.08);
+
+    z-index:20;
+}
+
+.zone:hover .zone-icon{
+
+    transform:
+        scale(1.25)
+        rotate(7deg);
+}
+
+
+/* =====================================================
+   LABEL HOVER
+===================================================== */
+
+.hover-label{
+
+    position:absolute;
+
+    bottom:9px;
+
+    left:50%;
+
+    transform:
+        translateX(-50%)
+        translateY(10px);
+
+    background:#5b391e;
+
+    color:#fff2ad;
+
+    padding:
+        6px 13px;
+
+    border-radius:20px;
+
+    white-space:nowrap;
+
+    font-size:12px;
+
+    opacity:0;
+
+    transition:.25s;
+
+    pointer-events:none;
+}
+
+.zone:hover .hover-label{
+
+    opacity:1;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+
+/* =====================================================
+   VỊ TRÍ CÁC KHU
+===================================================== */
+
+
+/* -----------------------------------------------------
+   HÀNG 1
+   Kho từ vựng - Bài học - Grammar
+----------------------------------------------------- */
+
+.vocab-bank{
+    left:6%;
+    top:125px;
+}
+
+.lesson{
+    left:29%;
+    top:125px;
+}
+
+.grammar{
+    left:52%;
+    top:125px;
+}
+
+
+/* -----------------------------------------------------
+   HÀNG 2
+   Chia động từ - Chia từ loại - Đọc điền
+----------------------------------------------------- */
+
+.verb{
+    left:8%;
+    top:355px;
+}
+
+.wordtype{
+    left:31%;
+    top:355px;
+}
+
+.fill{
+    right:8%;
+    top:355px;
+}
+
+
+/* -----------------------------------------------------
+   HÀNG 3
+   Đọc hiểu - Thư viện bài đọc - Game
+----------------------------------------------------- */
+
+.reading{
+    left:8%;
+    top:590px;
+}
+
+.library{
+    left:31%;
+    top:590px;
+}
+
+.game{
+    right:8%;
+    top:590px;
+}
+
+
+/* -----------------------------------------------------
+   HÀNG 4
+   Nông trại - Kho báu
+----------------------------------------------------- */
+
+.farm-zone{
+    left:20%;
+    top:825px;
+}
+
+.treasure{
+    right:20%;
+    top:825px;
+}
+
+
+/* =====================================================
+   MÀU RIÊNG
+===================================================== */
+
+
+/* Kho từ vựng */
+
+.vocab-bank{
+    background:
+        linear-gradient(
+            #dff3b7,
+            #a9d876
+        );
+}
+
+
+/* Bài học */
+
+.lesson{
+    background:
+        linear-gradient(
+            #ffe9a6,
+            #e6bd61
+        );
+}
+
+
+/* Grammar */
+
+.grammar{
+    background:
+        linear-gradient(
+            #f8d7b4,
+            #e9ae78
+        );
+}
+
+
+/* Chia động từ */
+
+.verb{
+    background:
+        linear-gradient(
+            #d7ebf2,
+            #9fcdd8
+        );
+}
+
+
+/* Chia từ loại */
+
+.wordtype{
+    background:
+        linear-gradient(
+            #f8d7b4,
+            #e9ae78
+        );
+}
+
+
+/* Đọc điền */
+
+.fill{
+    background:
+        linear-gradient(
+            #fff0a2,
+            #e4b644
+        );
+}
+
+
+/* Đọc hiểu */
+
+.reading{
+    background:
+        linear-gradient(
+            #d7ebf2,
+            #9fcdd8
+        );
+}
+
+
+/* Thư viện */
+
+.library{
+    background:
+        linear-gradient(
+            #d7ebf2,
+            #9fcdd8
+        );
+}
+
+
+/* Game */
+
+.game{
+    background:
+        linear-gradient(
+            #ffd0b8,
+            #ed9871
+        );
+}
+
+
+/* Nông trại */
+
+.farm-zone{
+    background:
+        linear-gradient(
+            #ffd1d1,
+            #e9948d
+        );
+}
+
+
+/* Kho báu */
+
+.treasure{
+    background:
+        linear-gradient(
+            #fff0a2,
+            #e4b644
+        );
+}
+
+
+/* =====================================================
+   CON VẬT
+===================================================== */
+
+.animal{
+
+    position:absolute;
+
+    z-index:8;
+
+    font-size:70px;
+
+    pointer-events:none;
+
+    animation:
+        animalMove 3s ease-in-out infinite;
+}
+
+.cow{
+    left:18px;
+    bottom:35px;
+}
+
+.pig{
+    right:20px;
+    bottom:40px;
+
+    animation-delay:1s;
+}
+
+.chicken{
+    left:48%;
+    top:740px;
+
+    font-size:45px;
+
+    animation-delay:.5s;
+}
+
+@keyframes animalMove{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-9px);
+    }
+}
+
+
+/* =====================================================
+   BẢNG GỖ
+===================================================== */
+
+.wood-sign{
+
+    width:min(900px,92%);
+
+    margin:
+        35px auto 15px;
+
+    padding:
+        15px;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            #9b612f,
+            #6f3e1e
+        );
+
+    border:
+        5px solid #523019;
+
+    border-radius:20px;
+
+    color:#fff0ac;
+
+    font-weight:bold;
+
+    box-shadow:
+        0 8px 0 #492918;
+}
+
+
+/* =====================================================
+   MXH
+===================================================== */
+
+.social{
+
+    width:min(650px,92%);
+
+    margin:
+        35px auto 20px;
+
+    padding:20px;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            #95602f,
+            #6c3d1e
+        );
+
+    border:
+        5px solid #523019;
+
+    border-radius:25px;
+
+    box-shadow:
+        0 8px 0 #482817;
+
+    color:white;
+}
+
+.social h2{
+
+    margin:
+        0 0 15px;
+
+    color:#fff0ac;
+}
+
+.social-links{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+}
+
+.social-links a{
+
+    width:53px;
+    height:53px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:white;
+
+    color:#65452b;
+
+    font-size:25px;
+
+    text-decoration:none;
+
+    transition:.2s;
+}
+
+.social-links a:hover{
+
+    transform:
+        translateY(-7px)
+        scale(1.1);
+
+    background:#ffe88d;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    text-align:center;
+
+    padding:20px;
+
+    color:white;
+
+    font-weight:bold;
+
+    text-shadow:
+        1px 2px 2px #456e2d;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media(max-width:900px){
+
+    .map{
+
+        min-height:1080px;
+    }
+
+    .zone{
+
+        width:175px;
+
+        min-height:160px;
+    }
+
+    .zone-icon{
+
+        font-size:50px;
+    }
+
+    .zone-name{
+
+        font-size:16px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:600px){
+
+    body{
+        overflow-x:hidden;
+    }
+
+    header{
+
+        width:94%;
+
+        padding:18px 10px;
+
+        border-width:5px;
+
+        border-radius:20px;
+    }
+
+    header h1{
+        font-size:28px;
+    }
+
+    .header-sub{
+        font-size:14px;
+    }
+
+    .header-decoration{
+        font-size:22px;
+        top:-16px;
+    }
+
+
+    .welcome{
+
+        width:94%;
+
+        font-size:13px;
+
+        padding:12px;
+    }
+
+
+    /* ==============================================
+       MOBILE MAP
+    ============================================== */
+
+    .map{
+
+        width:96%;
+
+        min-height:auto;
+
+        padding:
+            90px 10px 45px;
+
+        border-width:5px;
+
+        border-radius:30px;
+
+        overflow:visible;
+    }
+
+
+    .map-title{
+
+        top:18px;
+
+        font-size:19px;
+
+        padding:8px 13px;
+
+        border-width:4px;
+
+        white-space:normal;
+
+        width:90%;
+    }
+
+
+    /* ==============================================
+       ĐƯỜNG
+    ============================================== */
+
+    .road{
+
+        display:none;
+    }
+
+
+    /* ==============================================
+       CÂY / HOA
+    ============================================== */
+
+    .tree{
+
+        display:none;
+    }
+
+    .flower{
+
+        display:none;
+    }
+
+
+    /* ==============================================
+       MOBILE KHU VỰC
+    ============================================== */
+
+    .zone{
+
+        position:relative;
+
+        width:100%;
+
+        min-height:150px;
+
+        left:auto !important;
+        right:auto !important;
+        top:auto !important;
+
+        margin-bottom:18px;
+
+        border-width:4px;
+
+        border-radius:20px;
+
+        box-shadow:
+            0 7px 0 #70481d,
+            0 10px 18px rgba(0,0,0,.18);
+    }
+
+
+    .zone-icon{
+
+        font-size:48px;
+
+        margin-bottom:8px;
+    }
+
+    .zone-name{
+
+        font-size:17px;
+    }
+
+    .zone-desc{
+
+        font-size:12px;
+    }
+
+
+    /* ==============================================
+       BỎ TOOLTIP
+    ============================================== */
+
+    .hover-label{
+
+        display:none;
+    }
+
+
+    /* ==============================================
+       CON VẬT
+    ============================================== */
+
+    .animal{
+
+        display:none;
+    }
+
+
+    /* ==============================================
+       THỨ TỰ MOBILE
+    ============================================== */
+
+    .vocab-bank{
+        order:1;
+    }
+
+    .lesson{
+        order:2;
+    }
+
+    .grammar{
+        order:3;
+    }
+
+    .verb{
+        order:4;
+    }
+
+    .wordtype{
+        order:5;
+    }
+
+    .fill{
+        order:6;
+    }
+
+    .reading{
+        order:7;
+    }
+
+    .library{
+        order:8;
+    }
+
+    .game{
+        order:9;
+    }
+
+    .farm-zone{
+        order:10;
+    }
+
+    .treasure{
+        order:11;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE RẤT NHỎ
+===================================================== */
+
+@media(max-width:380px){
+
+    .zone{
+
+        min-height:135px;
+    }
+
+    .zone-icon{
+
+        font-size:42px;
+    }
+
+    .zone-name{
+
+        font-size:15px;
+    }
+
+}
+
 </style>
 </head>
+
+
 <body>
 
+
+<!-- =====================================================
+     SKY
+===================================================== -->
+
+<div class="sky">
+
+    <div class="sun"></div>
+
+    <div class="cloud cloud1"></div>
+
+    <div class="cloud cloud2"></div>
+
+</div>
+
+
+<div class="farm">
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header>
-  Lớp Anh thầy Kết - Luyện thi THCS
+
+    <div class="header-decoration left">
+        🍃📚
+    </div>
+
+    <div class="header-decoration right">
+        📚🍃
+    </div>
+
+    <h1>
+        📚 Lớp Anh thầy Kết 📚
+    </h1>
+
+    <div class="header-sub">
+        🚜 NÔNG TRẠI LUYỆN THI THCS 🚜
+    </div>
+
 </header>
 
-<div class="button-container">
-  <a href="https://lopanhthayket-site.github.io/lopanhthayket.thcs.baihoc2k12/" class="nav-button">Bài học</a>
-  <a href="https://lopanhthayket-site.github.io/Tracnghiemgrammar/" class="nav-button">Trắc nghiệm Grammar</a>
-  <a href="https://lopanhthayket-site.github.io/TracnghiemTuvung/" class="nav-button">Trắc nghiệm Từ vựng</a>
-  <a href="https://lopanhthayket-site.github.io/ChiaDongtu/" class="nav-button">Chia Động từ</a>
-  <a href="https://lopanhthayket-site.github.io/ChiaTuLoai/" class="nav-button">Chia từ loại</a>
-  <a href="https://lopanhthayket-site.github.io/Docdien/" class="nav-button">Đọc điền Đoạn văn</a>
-  <a href="https://lopanhthayket-site.github.io/Dochieu/" class="nav-button">Đọc hiểu Đoạn văn</a>
-  <a href="https://lopanhthayket-site.github.io/lopanhthayket_thcs-botuvung/" class="nav-button">Bộ Từ vựng</a>
-  <a href="https://ketng91.github.io/gametuvung/" class="nav-button">Game từ vựng</a> 
-  <a href="https://lopanhthayket-site.github.io/anh9.nongtraivuive/" class="nav-button">Nông trại vui vẻ</a> 
+
+<!-- =====================================================
+     WELCOME
+===================================================== -->
+
+<div class="welcome">
+
+    🌻 Chào mừng bạn đến với
+    <strong>Nông trại học tập THCS của thầy Kết!</strong>
+
+    <br>
+
+    🐔 Khám phá từng khu vực và chinh phục tiếng Anh nhé!
 
 </div>
 
-<!-- ====== Phần MXH ====== -->
-<div class="social-section">
-  <h2>MXH: Lớp Anh thầy Kết</h2>
-  <div class="social-icons">
-    <a href="https://www.facebook.com/profile.php?id=100095128431844" target="_blank" title="Facebook"><i class="fab fa-facebook-square"></i></a>
-    <a href="https://www.youtube.com/@LopmonAnhthayKet" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-    <a href="https://www.tiktok.com/@lopanhthayket" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-  </div>
+
+<!-- =====================================================
+     MAP
+===================================================== -->
+
+<div class="map">
+
+
+    <!-- TITLE -->
+
+    <div class="map-title">
+        🗺️ BẢN ĐỒ NÔNG TRẠI THCS
+    </div>
+
+
+    <!-- =================================================
+         ĐƯỜNG
+    ================================================== -->
+
+    <div class="road road-main"></div>
+
+    <div class="road road-vertical"></div>
+
+    <div class="road road-left"></div>
+
+    <div class="road road-right"></div>
+
+    <div class="road road-bottom"></div>
+
+
+    <!-- =================================================
+         CÂY
+    ================================================== -->
+
+    <div class="tree t1">🌳</div>
+    <div class="tree t2">🌳</div>
+    <div class="tree t3">🌲</div>
+    <div class="tree t4">🌲</div>
+    <div class="tree t5">🌳</div>
+    <div class="tree t6">🌳</div>
+
+
+    <!-- =================================================
+         HOA
+    ================================================== -->
+
+    <div class="flower f1">🌼🌷</div>
+    <div class="flower f2">🌻🌼</div>
+    <div class="flower f3">🌷🌼</div>
+    <div class="flower f4">🌼🌻</div>
+
+
+    <!-- =================================================
+         1. KHO TỪ VỰNG
+    ================================================== -->
+
+    <a
+    href="https://lopanhthayket-site.github.io/lopanhthayket_thcs-botuvung/"
+    class="zone vocab-bank">
+
+        <div class="zone-icon">
+            📕
+        </div>
+
+        <div class="zone-name">
+            Vườn từ vựng
+        </div>
+
+        <div class="zone-desc">
+            Bộ từ vựng THCS
+        </div>
+
+        <div class="hover-label">
+            📚 Mở kho từ
+        </div>
+
+    </a>
+
+
+    <!-- =================================================
+         2. BÀI HỌC
+    ================================================== -->
+
+    <a
+    href="https://lopanhthayket-site.github.io/lopanhthayket.thcs.baihoc2k12/"
+    class="zone lesson">
+
+        <div class="zone-icon">
+            🏫
+        </div>
+
+        <div class="zone-name">
+            Nhà bài học
+        </div>
+
+        <div class="zone-desc">
+            Bài học tiếng Anh THCS
+        </div>
+
+        <div class="hover-label">
+            🚪 Vào học
+        </div>
+
+    </a>
+
+
+    <!-- =================================================
+         3. GRAMMAR
+    ================================================== -->
+
+    <a
+    href="https://lopanhthayket-site.github.io/Tracnghiemgrammar/"
+    class="zone grammar">
+
+        <div class="zone-icon">
+            🧑‍🏫
+        </div>
+
+        <div class="zone-name">
+            Lớp Grammar
+        </div>
+
+        <div class="zone-desc">
+            Trắc nghiệm Grammar
+        </div>
+
+        <div class="hover-label">
+            ✏️ Học Grammar
+        </div>
+
+    </a>
+
+
+    <!-- =================================================
+         4. CHIA ĐỘNG TỪ
+    ================================================== -->
+
+    <a
+    href="https://lopanhthayket-site.github.io/ChiaDongtu/"
+    class="zone verb">
+
+        <div class="zone-icon">
+            🔄
+        </div>
+
+        <div class="zone-name">
+            Xưởng chia động từ
+        </div>
+
+        <div class="zone-desc">
+            Luyện chia động từ
+        </div>
+
+        <div class="hover-label">
+            🔄 Luyện ngay
+        </div>
+
+    </a>
+
+
+    <!-- =================================================
+         5. CHIA TỪ LOẠI
+    ================================================== -->
+
+    <a
+    href="https://lopanhthayket-site.github.io/ChiaTuLoai/"
+    class="zone wordtype">
+
+        <div class="zone-icon">
+            🧩
+        </div>
+
+        <div class="zone-name">
+            Xưởng từ loại
+        </div>
+
+        <div class="zone-desc">
+            Luyện chia từ loại
+        </div>
+
+        <div class="hover-label">
+            🧩 Thử sức
+        </div>
+
+    </a>
+
+
+    <!-- =================================================
+         6. ĐỌC ĐIỀN
+    ================================================== -->
+
+    <a
+    href="https://lopanhthayket-site.github.io/Docdien/"
+    class="zone fill">
+
+        <div class="zone-icon">
+            ✏️
+        </div>
+
+        <div class="zone-name">
+            Xưởng đọc điền
+        </div>
+
+        <div class="zone-desc">
+            Đọc điền đoạn văn
+        </div>
+
+        <div class="hover-label">
+            ✏️ Làm bài
+        </div>
+
+    </a>
+
+
+    <!-- =================================================
+         7. ĐỌC HIỂU
+    ================================================== -->
+
+    <a
+    href="https://lopanhthayket-site.github.io/Dochieu/"
+    class="zone reading">
+
+        <div class="zone-icon">
+            📖
+        </div>
+
+        <div class="zone-name">
+            Khu đọc hiểu
+        </div>
+
+        <div class="zone-desc">
+            Đọc hiểu đoạn văn
+        </div>
+
+        <div class="hover-label">
+            📖 Đọc ngay
+        </div>
+
+    </a>
+
+
+    <!-- =================================================
+         8. THƯ VIỆN BÀI ĐỌC
+         
+         TẠM DÙNG LINK ĐỌC HIỂU.
+         Thầy chỉ cần thay href khi có link riêng.
+    ================================================== -->
+
+    <a
+    href="https://lopanhthayket-site.github.io/Dochieu/"
+    class="zone library">
+
+        <div class="zone-icon">
+            📚
+        </div>
+
+        <div class="zone-name">
+            Thư viện bài đọc
+        </div>
+
+        <div class="zone-desc">
+            Kho bài đọc tiếng Anh
+        </div>
+
+        <div class="hover-label">
+            📚 Mở thư viện
+        </div>
+
+    </a>
+
+
+    <!-- =================================================
+         9. GAME TỪ VỰNG
+    ================================================== -->
+
+    <a
+    href="https://ketng91.github.io/gametuvung/"
+    class="zone game">
+
+        <div class="zone-icon">
+            🎮
+        </div>
+
+        <div class="zone-name">
+            Sân game
+        </div>
+
+        <div class="zone-desc">
+            Game từ vựng
+        </div>
+
+        <div class="hover-label">
+            🎮 Chơi ngay!
+        </div>
+
+    </a>
+
+
+    <!-- =================================================
+         10. NÔNG TRẠI VUI VẺ
+    ================================================== -->
+
+    <a
+    href="https://lopanhthayket-site.github.io/anh9.nongtraivuive/"
+    class="zone farm-zone">
+
+        <div class="zone-icon">
+            🍎🌳
+        </div>
+
+        <div class="zone-name">
+            Nông trại vui vẻ
+        </div>
+
+        <div class="zone-desc">
+            Học tập và khám phá
+        </div>
+
+        <div class="hover-label">
+            🌻 Vào nông trại
+        </div>
+
+    </a>
+
+
+    <!-- =================================================
+         11. KHO BÁU XU VÀNG
+    ================================================== -->
+
+    <a
+    href="https://ketng91.github.io/xumayman/"
+    class="zone treasure">
+
+        <div class="zone-icon">
+            🪙💰
+        </div>
+
+        <div class="zone-name">
+            Kho báu xu vàng
+        </div>
+
+        <div class="zone-desc">
+            Quay xu may mắn
+        </div>
+
+        <div class="hover-label">
+            🎡 Quay ngay!
+        </div>
+
+    </a>
+
+
+    <!-- =================================================
+         CON VẬT
+    ================================================== -->
+
+    <div class="animal cow">
+        🐮
+    </div>
+
+    <div class="animal pig">
+        🐷
+    </div>
+
+    <div class="animal chicken">
+        🐔
+    </div>
+
+
 </div>
+
+
+<!-- =====================================================
+     BẢNG GỖ
+===================================================== -->
+
+<div class="wood-sign">
+
+    🌱 HỌC MỖI NGÀY
+    &nbsp; • &nbsp;
+    ⭐ TIẾN BỘ MỖI TUẦN
+    &nbsp; • &nbsp;
+    🏆 CHINH PHỤC TIẾNG ANH THCS
+
+</div>
+
+
+<!-- =====================================================
+     MXH
+===================================================== -->
+
+<div class="social">
+
+    <h2>
+        📱 MXH: Lớp Anh thầy Kết
+    </h2>
+
+    <div class="social-links">
+
+        <a
+        href="https://www.facebook.com/profile.php?id=100095128431844"
+        target="_blank"
+        title="Facebook">
+
+            <i class="fab fa-facebook-f"></i>
+
+        </a>
+
+
+        <a
+        href="https://www.youtube.com/@LopmonAnhthayKet"
+        target="_blank"
+        title="YouTube">
+
+            <i class="fab fa-youtube"></i>
+
+        </a>
+
+
+        <a
+        href="https://www.tiktok.com/@lopanhthayket"
+        target="_blank"
+        title="TikTok">
+
+            <i class="fab fa-tiktok"></i>
+
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
-  © 2026 Lớp Anh thầy Kết. All rights reserved.
+
+    🍎 © 2026 Lớp Anh thầy Kết
+    · Học vui mỗi ngày · 🚜
+
 </footer>
+
+
+</div>
 
 </body>
 </html>
+```
